@@ -15,10 +15,11 @@ datasource db {
 
 model Highscore {
   id         Int      @id @default(autoincrement())
-  created_at DateTime @default(now())
+  created_at DateTime @default(now()) @db.Date
   username   String
   categoryId Int
   category   Category @relation(fields: [categoryId], references: [id])
+  score      Int
 }
 
 model Category {
